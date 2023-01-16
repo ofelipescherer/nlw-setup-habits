@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// prisma suporta vários banco de dados (Ai cada banco usa um nome, por isso o prisma generaliza com "model")
+// @id significa que é chave primária
+// @default(uuid()) Toda vez que gerar um id, gera um uuid (Universal unique Id)
+// @@map("habits") Da um alias para a tabela, então a tabela se chamará "habits"
+model Habit {
+  id String @id @default(uuid())
+  title String
+  created_at DateTime
+
+  @@map("habits")
+}
+
+
