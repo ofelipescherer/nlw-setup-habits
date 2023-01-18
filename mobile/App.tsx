@@ -1,3 +1,5 @@
+import "./src/lib/day";
+
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import {
   useFonts,
@@ -33,3 +35,4 @@ export default function App() {
     </>
   );
 }
+
