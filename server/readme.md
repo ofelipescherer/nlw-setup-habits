@@ -37,3 +37,10 @@ incia um banco de dados
 
 ** Cors -> Quais aplicações frontend podem acessar esse backend
 - npm install @fastify/cors
+
+
+npx prisma generate -> cria um svg do banco de dados
+
+
+Seed - Populador de banco de dados
+npx db seed -> popula o banco com as alterações do arquivo seed.ts

@@ -1,31 +1,16 @@
-import Fastify from 'fastify'
-import {PrismaClient} from '@prisma/client'
-import cors from '@fastify/cors'
+import Fastify from "fastify";
+import cors from "@fastify/cors";
+import { appRoutes } from "./routes";
 
-const app = Fastify()
-const prisma = new PrismaClient()
+const app = Fastify();
 
-app.register(cors)
+app.register(cors);
+app.register(appRoutes);
 
-/*
-- Método HTTTP: Get (Busca os dados), Post(Cria alguma coisa), Put(Atualiza um recurso por completo), Patch(Atualiza um recurso especifico ), Delete(Deleta um recurso do banco de dados)
-*/
-
-app.get('/hello', async () => {
-    const habits = await prisma.habit.findMany({
-        where: {
-          title: {
-            startsWith: 'Beber'
-          }
-        }
-    })
-
-    return habits
-})
-
-
-app.listen({
-    port: 3333
-}).then(() => {
-    console.log('Server running')
-})
+app
+  .listen({
+    port: 3333,
+  })
+  .then(() => {
+    console.log("Server running");
+  });
