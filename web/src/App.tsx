@@ -1,4 +1,5 @@
 import './styles/global.css';
+import './lib/dayJS.ts';
 
 import { Plus } from 'phosphor-react';
 import { Header } from './components/Header';
